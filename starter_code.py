@@ -66,9 +66,19 @@ def binary_search_iterative(data, target):
         binary_search_iterative([1, 2, 5, 8, 9], 8) returns 3
         binary_search_iterative([1, 2, 5, 8, 9], 7) returns -1
     """
-    # TODO: Implement iterative binary search that uses iteration to find the target. Return the index if found and -1 if not found.
-    
-    pass # Delete pass and write your code here
+    left = 0
+    right = len(data) - 1
+
+    while left <= right:
+        middle = (left + right) // 2
+        if data[middle] == target:
+            return middle
+        if data[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
+
+    return -1
 
 
 # ============================================================================
