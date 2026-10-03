@@ -113,10 +113,15 @@ def binary_search_recursive(data, target, left=None, right=None):
     if right is None:
         right = len(data) - 1
     
-    # TODO: Implement recursive binary search that uses recursion to find the target. Return the index if found and -1 if not found. Note that default parameters are already handled above.
+    if left > right:
+        return -1
 
-    
-    pass # Delete pass and write your code here
+    middle = (left + right) // 2
+    if data[middle] == target:
+        return middle
+    if data[middle] < target:
+        return binary_search_recursive(data, target, middle + 1, right)
+    return binary_search_recursive(data, target, left, middle - 1)
 
 
 # ============================================================================
